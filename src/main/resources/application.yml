@@ -19,7 +19,7 @@ spring:
 springdoc:
   show-actuator: true
   paths-to-match: /**
-  packages-to-scan: com.farukgenc.boilerplate.springboot
+  packages-to-scan: com.hca
 
 management:
   endpoint:
@@ -38,14 +38,14 @@ logging:
 ## FIXME : Customize JWT token and Swagger information for your application
 
 jwt:
-  secretKey: secret
-  issuer: www.farukgenc.com
-  expirationMinute: 10
+  secretKey: 8cZXigXYSl7HULXkJim3ml442EMznNXR
+  issuer: hca
+  expirationMinute: 30
 
 swagger:
-  contact-name: Faruk Genc
-  contact-mail: omer@farukgenc.com
-  contact-url: https://farukgenc.com
+  contact-name: HCA
+  contact-mail: hca@gmail.com
+  contact-url: https://hca.com
   app-name: Spring Boot Boilerplate Project
   app-description: "Spring Boot Boilerplate is a starter kit. This project includes : Spring Boot(2.7.4), Spring Data JPA, Spring Validation, Spring Security + JWT Token, PostgreSQL, Mapstruct, Lombok, Swagger"
   app-version: 2.0.0

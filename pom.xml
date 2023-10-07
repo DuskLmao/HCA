@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.farukgenc</groupId>
-    <artifactId>springboot-boilerplate</artifactId>
+    <artifactId>hca</artifactId>
     <version>2.2.0</version>
 
     <name>spring-boot-boilerplate</name>
