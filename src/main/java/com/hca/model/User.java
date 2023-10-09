@@ -3,6 +3,7 @@ package com.hca.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.*;
 
 /**
  * Created on Oct, 2023
@@ -34,4 +35,17 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 
+	@OneToMany(mappedBy = "user")
+	private Set<Rating> ratings = new HashSet<>();
+
+	@ManyToMany
+	@JoinTable(
+			name = "user_favourite",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "comic_id")
+	)
+	private Set<Comic> favourites = new HashSet<>();
+// history
+	@OneToMany(mappedBy = "user")
+	private Set<History> readingHistory = new HashSet<>();
 }
