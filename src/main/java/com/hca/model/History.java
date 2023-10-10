@@ -2,10 +2,11 @@ package com.hca.model;
 
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.*;
 
 @Getter
 @Setter
@@ -27,6 +28,12 @@ public class History {
     @ManyToOne
     @JoinColumn(name = "comic_id")
     private Comic comic;
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @CreationTimestamp
+    private Timestamp updateAt;
 
     // Constructors, getters, và setters
 }

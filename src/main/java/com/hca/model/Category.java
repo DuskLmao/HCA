@@ -1,8 +1,10 @@
 package com.hca.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 @Getter
@@ -21,4 +23,10 @@ public class Category {
 
     @ManyToMany(mappedBy = "categories")
     private Set<Comic> comics = new HashSet<>();
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @CreationTimestamp
+    private Timestamp updateAt;
 }

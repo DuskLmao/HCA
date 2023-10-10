@@ -1,8 +1,10 @@
 package com.hca.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -30,6 +32,7 @@ public class User {
 
 	private String password;
 
+	@Column(unique = true)
 	private String email;
 
 	@Enumerated(EnumType.STRING)
@@ -48,4 +51,12 @@ public class User {
 // history
 	@OneToMany(mappedBy = "user")
 	private Set<History> readingHistory = new HashSet<>();
+
+	@CreationTimestamp
+	private Timestamp createdAt;
+
+	@CreationTimestamp
+	private Timestamp updateAt;
+
 }
+

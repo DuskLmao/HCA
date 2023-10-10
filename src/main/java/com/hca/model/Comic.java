@@ -1,8 +1,10 @@
 package com.hca.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 @Getter
@@ -51,4 +53,10 @@ public class Comic {
     //history
     @OneToMany(mappedBy = "comic")
     private Set<History> readingHistory = new HashSet<>();
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @CreationTimestamp
+    private Timestamp updateAt;
 }

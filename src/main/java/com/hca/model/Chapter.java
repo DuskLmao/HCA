@@ -1,11 +1,11 @@
 package com.hca.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Time;
-import java.util.HashSet;
-import java.util.Set;
+import java.sql.Timestamp;
 
 @Getter
 @Setter
@@ -32,5 +32,11 @@ public class Chapter {
     @ManyToOne
     @JoinColumn(name = "comic_id")
     private Comic comic;
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @CreationTimestamp
+    private Timestamp updateAt;
 }
 

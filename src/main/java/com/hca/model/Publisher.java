@@ -1,8 +1,10 @@
 package com.hca.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,4 +24,10 @@ public class Publisher {
 
     @OneToMany(mappedBy = "publisher")
     private Set<Comic> comics = new HashSet<>();
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @CreationTimestamp
+    private Timestamp updateAt;
 }
