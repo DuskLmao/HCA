@@ -38,5 +38,16 @@ public class Chapter {
 
     @CreationTimestamp
     private Timestamp updateAt;
+
+    @CreationTimestamp
+    private Timestamp deletedAt;
+
+    private boolean isDeleted;
+
+    private Long creatorUserID;
+
+    private Long updaterUserID;
+
+    private Long deleterUserID;
 }
 

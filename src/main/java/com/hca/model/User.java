@@ -6,6 +6,8 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -39,6 +41,26 @@ public class User {
 	@JsonIgnore // remove property when return response
 	private String password;
 
+	public static String generateToken(String password) {
+		try {
+			// Sử dụng MD5 để mã hóa mật khẩu
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(password.getBytes());
+			byte[] digest = md.digest();
+
+			// Chuyển byte[] thành chuỗi hex
+			StringBuilder sb = new StringBuilder();
+			for (byte b : digest) {
+				sb.append(String.format("%02x", b));
+			}
+
+			return sb.toString(); // Chuỗi hex là token
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	@Column(unique = true)
 	@JsonIgnore
 	private String email;
@@ -71,6 +93,17 @@ public class User {
 	@CreationTimestamp
 	@JsonIgnore
 	private Timestamp updateAt;
+
+	@CreationTimestamp
+	private Timestamp deletedAt;
+
+	private boolean isDeleted;
+
+	private Long creatorUserID;
+
+	private Long updaterUserID;
+
+	private Long deleterUserID;
 
 }
 

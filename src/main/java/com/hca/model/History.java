@@ -35,5 +35,15 @@ public class History {
     @CreationTimestamp
     private Timestamp updateAt;
 
-    // Constructors, getters, và setters
+    @CreationTimestamp
+    private Timestamp deletedAt;
+
+    private boolean isDeleted;
+
+    private Long creatorUserID;
+
+    private Long updaterUserID;
+
+    private Long deleterUserID;
+
 }
