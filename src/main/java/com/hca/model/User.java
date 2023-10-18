@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.*;
 import java.security.MessageDigest;
@@ -41,24 +42,11 @@ public class User {
 	@JsonIgnore // remove property when return response
 	private String password;
 
-	public static String generateToken(String password) {
-		try {
-			// Sử dụng MD5 để mã hóa mật khẩu
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			md.update(password.getBytes());
-			byte[] digest = md.digest();
+	public static String generateBcryptHash(String password) {
+		String salt = BCrypt.gensalt(12);
+		String hashedPassword = BCrypt.hashpw(password, salt);
 
-			// Chuyển byte[] thành chuỗi hex
-			StringBuilder sb = new StringBuilder();
-			for (byte b : digest) {
-				sb.append(String.format("%02x", b));
-			}
-
-			return sb.toString(); // Chuỗi hex là token
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return hashedPassword;
 	}
 
 	@Column(unique = true)
