@@ -1,6 +1,6 @@
 FROM openjdk:11
-WORKDIR app
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} spring-boot-boilerplate.jar
+VOLUME /tmp
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","spring-boot-boilerplate.jar"]
+ARG JAR_FILE=target/spring-boot-docker.jar
+ADD ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
