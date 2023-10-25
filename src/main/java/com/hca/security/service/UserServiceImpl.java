@@ -1,14 +1,13 @@
 package com.hca.security.service;
 
+import com.hca.security.dto.*;
 import com.hca.service.UserValidationService;
 import com.hca.model.User;
 import com.hca.model.UserRole;
-import com.hca.security.dto.AuthenticatedUserDto;
-import com.hca.security.dto.RegistrationRequest;
-import com.hca.security.dto.RegistrationResponse;
 import com.hca.security.mapper.UserMapper;
 import com.hca.utils.GeneralMessageAccessor;
 import com.hca.repository.UserRepository;
+import com.hca.utils.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -57,6 +56,27 @@ public class UserServiceImpl implements UserService {
 		log.info("{} registered successfully!", username);
 
 		return new RegistrationResponse(registrationSuccessMessage);
+	}
+
+	@Override
+	public ResetPasswordResponse resetPassword(ResetPasswordRequest resetPasswordRequest) {
+		ResetPasswordResponse res = new ResetPasswordResponse();
+		String email = resetPasswordRequest.getEmail();
+
+		User user = userRepository.findByEmail(email);
+		if (user == null) {
+			res.setMessage("Email không tồn tại");
+			res.setSuccess(false);
+		} else {
+			String randomPassword = Utils.generatePassword(6);
+			user.setPassword(bCryptPasswordEncoder.encode(randomPassword));
+			userRepository.save(user);
+			res.setMessage("Một email chứa mật khẩu đã được gửi đến bạn.");
+			res.setSuccess(true);
+
+			// TODO: Lâm: Send email
+		}
+		return res;
 	}
 
 	@Override

@@ -1,9 +1,7 @@
 package com.hca.security.service;
 
 import com.hca.model.User;
-import com.hca.security.dto.AuthenticatedUserDto;
-import com.hca.security.dto.RegistrationRequest;
-import com.hca.security.dto.RegistrationResponse;
+import com.hca.security.dto.*;
 
 /**
  * Created on Oct, 2023
@@ -15,6 +13,8 @@ public interface UserService {
 	User findByUsername(String username);
 
 	RegistrationResponse registration(RegistrationRequest registrationRequest);
+
+	ResetPasswordResponse resetPassword(ResetPasswordRequest resetPasswordRequest);
 
 	AuthenticatedUserDto findAuthenticatedUserByUsername(String username);
 

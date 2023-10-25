@@ -23,15 +23,12 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	@GetMapping("/me")
-	public ResponseEntity<?> getUser() {
+	public ResponseEntity<User> getUser() {
 		String username = SecurityConstants.getAuthenticatedUsername();
 		User loggedInUser = userRepository.findByUsername(username);
 
-		if (loggedInUser == null) {
-			// Trả về lỗi 401 nếu người dùng không được xác thực
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
-		}
-
 		return ResponseEntity.ok(loggedInUser);
 	}
+
+
 }
