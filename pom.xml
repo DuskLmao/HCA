@@ -12,8 +12,9 @@
     <groupId>com.farukgenc</groupId>
     <artifactId>hca</artifactId>
     <version>2.2.0</version>
+    <packaging>jar</packaging>
 
-    <name>spring-boot-boilerplate</name>
+    <name>hca</name>
     <description>
         Spring Boot Boilerplate is a starter kit. This project includes : Spring Boot(2.7.4), Spring Data JPA, Spring Validation, Spring Security +
         JWT Token, PostgreSQL, Mapstruct, Lombok, Swagger
