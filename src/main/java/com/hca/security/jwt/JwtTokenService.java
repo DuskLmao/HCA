@@ -1,11 +1,11 @@
 package com.hca.security.jwt;
 
+import com.hca.security.dto.Response;
 import com.hca.security.mapper.UserMapper;
 import com.hca.security.service.UserService;
 import com.hca.model.User;
 import com.hca.security.dto.AuthenticatedUserDto;
 import com.hca.security.dto.LoginRequest;
-import com.hca.security.dto.LoginResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,7 +28,7 @@ public class JwtTokenService {
 
 	private final AuthenticationManager authenticationManager;
 
-	public LoginResponse getLoginResponse(LoginRequest loginRequest) {
+	public Response<String> getLoginResponse(LoginRequest loginRequest) {
 
 		final String username = loginRequest.getUsername();
 		final String password = loginRequest.getPassword();
@@ -44,7 +44,12 @@ public class JwtTokenService {
 
 		log.info("{} has successfully logged in!", user.getUsername());
 
-		return new LoginResponse(token);
+		Response<String> resp = new Response<String>();
+		resp.setMessage("Đăng nhập thành công");
+		resp.setData(token);
+		resp.setSuccess(true);
+
+		return resp;
 	}
 
 }

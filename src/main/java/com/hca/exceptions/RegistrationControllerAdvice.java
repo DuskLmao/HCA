@@ -1,6 +1,6 @@
 package com.hca.exceptions;
 
-import com.hca.controller.RegistrationController;
+import com.hca.controller.AuthController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  *
  * @author HCA
  */
-@RestControllerAdvice(basePackageClasses = RegistrationController.class)
+@RestControllerAdvice(basePackageClasses = AuthController.class)
 public class RegistrationControllerAdvice {
 
 	@ExceptionHandler(RegistrationException.class)

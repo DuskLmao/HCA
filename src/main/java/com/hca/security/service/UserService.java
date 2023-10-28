@@ -12,9 +12,9 @@ public interface UserService {
 
 	User findByUsername(String username);
 
-	RegistrationResponse registration(RegistrationRequest registrationRequest);
+	Response<Object> registration(RegistrationRequest registrationRequest);
 
-	ResetPasswordResponse resetPassword(ResetPasswordRequest resetPasswordRequest);
+	Response<Object> resetPassword(ResetPasswordRequest resetPasswordRequest);
 
 	AuthenticatedUserDto findAuthenticatedUserByUsername(String username);
 

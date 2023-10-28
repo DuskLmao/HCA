@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public RegistrationResponse registration(RegistrationRequest registrationRequest) {
+	public Response<Object> registration(RegistrationRequest registrationRequest) {
 
 		userValidationService.validateUser(registrationRequest);
 
@@ -55,12 +55,16 @@ public class UserServiceImpl implements UserService {
 
 		log.info("{} registered successfully!", username);
 
-		return new RegistrationResponse(registrationSuccessMessage);
+		Response<Object> resp = new Response<>();
+		resp.setSuccess(true);
+		resp.setMessage("Đăng ký thành công");
+
+		return resp;
 	}
 
 	@Override
-	public ResetPasswordResponse resetPassword(ResetPasswordRequest resetPasswordRequest) {
-		ResetPasswordResponse res = new ResetPasswordResponse();
+	public Response<Object> resetPassword(ResetPasswordRequest resetPasswordRequest) {
+		Response<Object> res = new Response<Object>();
 		String email = resetPasswordRequest.getEmail();
 
 		User user = userRepository.findByEmail(email);

@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    image: 'nxhdev2002/hca-spring-app'
     container_name: app
     build:
       context: .
@@ -10,5 +11,5 @@ services:
     environment:
       - "DB_SERVER_ADDRESS=database.ngxuanhoang.id.vn"
       - "DB_SERVER_PORT=3306"
-      - "DB_USER=hca_test"
+      - "DB_USER=hca_dev"
       - "DB_PASSWORD=Hca@123"

@@ -1,6 +1,6 @@
 package com.hca.exceptions;
 
-import com.hca.controller.LoginController;
+import com.hca.controller.AuthController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  *
  * @author HCA
  */
-@RestControllerAdvice(basePackageClasses = LoginController.class)
+@RestControllerAdvice(basePackageClasses = AuthController.class)
 public class LoginControllerAdvice {
 
 	@ExceptionHandler(BadCredentialsException.class)

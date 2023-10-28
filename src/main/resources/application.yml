@@ -4,6 +4,11 @@ spring:
     username: ${DB_USER:hca_dev}
     password: ${DB_PASSWORD:Hca@123}
 
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
@@ -15,6 +20,7 @@ spring:
       properties:
         hibernate.use_sql_comments: true
         hibernate.format_sql: true
+
 
 springdoc:
   show-actuator: true
