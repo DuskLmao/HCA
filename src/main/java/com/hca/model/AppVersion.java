@@ -2,6 +2,7 @@ package com.hca.model;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -13,7 +14,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@Table(name = "apkfile")
+@Table(name="AppVersion")
 public class AppVersion {
 
     @Id
@@ -22,7 +23,7 @@ public class AppVersion {
 
     private String FileName;
 
-    private String FileData;
+    private long FileData;
 
     private String Version;
 
@@ -39,8 +40,10 @@ public class AppVersion {
 
     private boolean isDeleted;
 
+    @Value("1")
     private Long creatorUserID;
 
+    @Value("1")
     private Long updaterUserID;
 
     private Long deleterUserID;
