@@ -9,15 +9,14 @@
         <version>2.7.10</version>
     </parent>
 
-    <groupId>com.farukgenc</groupId>
+    <groupId>com.hca</groupId>
     <artifactId>hca</artifactId>
     <version>2.2.0</version>
     <packaging>jar</packaging>
 
     <name>hca</name>
     <description>
-        Spring Boot Boilerplate is a starter kit. This project includes : Spring Boot(2.7.4), Spring Data JPA, Spring Validation, Spring Security +
-        JWT Token, PostgreSQL, Mapstruct, Lombok, Swagger
+        HCA 2023
     </description>
 
     <developers>
@@ -141,7 +140,7 @@
 
     <build>
 
-        <finalName>spring-boot-boilerplate</finalName>
+        <finalName>hca</finalName>
 
         <plugins>
 

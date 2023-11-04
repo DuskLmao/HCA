@@ -9,7 +9,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - "DB_SERVER_ADDRESS=database.ngxuanhoang.id.vn"
+      - "DB_SERVER_ADDRESS=10.8.0.254"
       - "DB_SERVER_PORT=3306"
       - "DB_USER=hca_dev"
       - "DB_PASSWORD=Hca@123"
+    network_mode: bridge
