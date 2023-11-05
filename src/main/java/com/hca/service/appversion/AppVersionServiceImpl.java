@@ -28,8 +28,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AppVersionServiceImpl implements AppVersionService {
     private final AppVersionRepository appVersionRepository;
+
     private final UserRepository userRepository;
+
     public AppVersion uploadAPKFile(MultipartFile file) {
+
         AppVersion apkFile = new AppVersion();
         var fileName = file.getOriginalFilename();
         var fileSize = file.getSize();
@@ -93,5 +96,16 @@ public class AppVersionServiceImpl implements AppVersionService {
     public AppVersion getAPKFileInfo(Long id) {
         var file = appVersionRepository.findById(id);
         return file.orElse(null);
+    }
+
+    public Resource downloadLatestAPKFile() {
+        var file = appVersionRepository.getLatestVersion();
+
+        try {
+            Path dirPath = Paths.get(file.getFilePath());
+            return new UrlResource(dirPath.toUri());
+        } catch (Exception ex) {
+            return null;
+        }
     }
 }

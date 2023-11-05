@@ -89,4 +89,24 @@ public class FileUploadController {
                     .body(null);
         }
     }
+
+    @GetMapping("/latest")
+    public ResponseEntity<Resource> downloadAPKFile() {
+        var appVersion = appVersionService.downloadLatestAPKFile();
+
+        if (appVersion != null) {
+            String contentType = "application/octet-stream";
+            String headerValue = "attachment; filename=\"" + appVersion.getFilename() + "\"";
+
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, headerValue)
+                    .body(appVersion);
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(null);
+        }
+    }
 }

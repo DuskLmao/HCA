@@ -10,4 +10,5 @@ public interface AppVersionService {
     AppVersion uploadAPKFile(MultipartFile multipartFile);
     Resource downloadAPKFile(Long fileId);
     AppVersion getAPKFileInfo(Long fileId);
+    Resource downloadLatestAPKFile();
 }
