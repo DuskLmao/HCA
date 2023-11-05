@@ -21,11 +21,12 @@ public class DataSeeder {
         this.categoryFactory = categoryFactory;
     }
 
-    @PostConstruct
-    public void seedData() {
-        userFactory.seedData();
-        authorFactory.seedData();
-        categoryFactory.seedData();
-    }
+//    @PostConstruct
+//    public void seedData() {
+//            userFactory.seedData();
+//            authorFactory.seedData();
+//            categoryFactory.seedData();
+//        }
+//    }
 
 }
