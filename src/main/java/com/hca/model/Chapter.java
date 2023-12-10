@@ -1,7 +1,10 @@
 package com.hca.model;
 
+import com.hca.repository.UserRepository;
+import com.hca.security.utils.SecurityConstants;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -23,14 +26,12 @@ public class Chapter {
 
     private String title;
 
-    private String content;
+    private String description;
 
     private Time ReleaseDate;
 
-    private String View;
+    private Long View;
 
-    @ManyToOne
-    @JoinColumn(name = "comic_id")
     private Comic comic;
 
     @CreationTimestamp
@@ -39,7 +40,6 @@ public class Chapter {
     @CreationTimestamp
     private Timestamp updateAt;
 
-    @CreationTimestamp
     private Timestamp deletedAt;
 
     private boolean isDeleted;
