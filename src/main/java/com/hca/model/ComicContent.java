@@ -1,14 +1,11 @@
 package com.hca.model;
 
-import com.hca.repository.UserRepository;
-import com.hca.security.utils.SecurityConstants;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,23 +13,20 @@ import java.sql.Timestamp;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Chapters")
-public class Chapter {
+@Table(name = "comic_content")
+public class ComicContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @JoinColumn(name = "comic_chapter")
+    private Long chapter;
 
-    private String title;
+    @JoinColumn(name = "comic_id")
+    private Long comic;
 
-    private String description;
-
-    private Time ReleaseDate;
-
-    private Long View;
-
-    private Comic comic;
+    @Column(name = "comic_content")
+    private String content;
 
     @CreationTimestamp
     private Timestamp createdAt;
@@ -40,6 +34,7 @@ public class Chapter {
     @CreationTimestamp
     private Timestamp updateAt;
 
+    @CreationTimestamp
     private Timestamp deletedAt;
 
     private boolean isDeleted;
@@ -50,4 +45,3 @@ public class Chapter {
 
     private Long deleterUserID;
 }
-
