@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.*;
@@ -57,32 +58,31 @@ public class User {
 	@JsonIgnore
 	private UserRole userRole;
 
-	@OneToMany(mappedBy = "user")
-	@JsonIgnore
-	private Set<Rating> ratings = new HashSet<>();
-
-	@ManyToMany
-	@JsonIgnore
-	@JoinTable(
-			name = "user_favourite",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "comic_id")
-	)
-	private Set<Comic> favourites = new HashSet<>();
-
-	@OneToMany(mappedBy = "user")
-	@JsonIgnore
-	private Set<History> readingHistory = new HashSet<>();
+//	@OneToMany(mappedBy = "user")
+//	@JsonIgnore
+//	private Set<Rating> ratings = new HashSet<>();
+//
+//	@ManyToMany
+//	@JsonIgnore
+//	@JoinTable(
+//			name = "user_favourite",
+//			joinColumns = @JoinColumn(name = "user_id"),
+//			inverseJoinColumns = @JoinColumn(name = "comic_id")
+//	)
+//	private Set<Comic> favourites = new HashSet<>();
+//
+//	@OneToMany(mappedBy = "user")
+//	@JsonIgnore
+//	private Set<History> readingHistory = new HashSet<>();
 
 	@CreationTimestamp
 	@JsonIgnore
 	private Timestamp createdAt;
 
-	@CreationTimestamp
+	@UpdateTimestamp
 	@JsonIgnore
-	private Timestamp updateAt;
+	private Timestamp updatedAt;
 
-	@CreationTimestamp
 	private Timestamp deletedAt;
 
 	private boolean isDeleted;

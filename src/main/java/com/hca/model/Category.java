@@ -2,6 +2,7 @@ package com.hca.model;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -21,16 +22,12 @@ public class Category {
 
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<Comic> comics = new HashSet<>();
-
     @CreationTimestamp
     private Timestamp createdAt;
 
-    @CreationTimestamp
-    private Timestamp updateAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
-    @CreationTimestamp
     private Timestamp deletedAt;
 
     private boolean isDeleted;

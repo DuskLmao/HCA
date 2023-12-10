@@ -2,6 +2,7 @@ package com.hca.model;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -22,21 +23,20 @@ public class Rating {
 
     private String point;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "comic_id")
-    private Comic comic;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private User user;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "comic_id")
+//    private Comic comic;
 
     @CreationTimestamp
     private Timestamp createdAt;
 
-    @CreationTimestamp
-    private Timestamp updateAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
-    @CreationTimestamp
     private Timestamp deletedAt;
 
     private boolean isDeleted;

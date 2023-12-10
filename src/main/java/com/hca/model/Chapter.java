@@ -2,6 +2,7 @@ package com.hca.model;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -29,17 +30,12 @@ public class Chapter {
 
     private String View;
 
-    @ManyToOne
-    @JoinColumn(name = "comic_id")
-    private Comic comic;
-
     @CreationTimestamp
     private Timestamp createdAt;
 
-    @CreationTimestamp
-    private Timestamp updateAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
-    @CreationTimestamp
     private Timestamp deletedAt;
 
     private boolean isDeleted;
