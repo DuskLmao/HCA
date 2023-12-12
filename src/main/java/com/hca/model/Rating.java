@@ -23,14 +23,6 @@ public class Rating {
 
     private String point;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "comic_id")
-//    private Comic comic;
-
     @CreationTimestamp
     private Timestamp createdAt;
 
@@ -40,10 +32,4 @@ public class Rating {
     private Timestamp deletedAt;
 
     private boolean isDeleted;
-
-    private Long creatorUserID;
-
-    private Long updaterUserID;
-
-    private Long deleterUserID;
 }

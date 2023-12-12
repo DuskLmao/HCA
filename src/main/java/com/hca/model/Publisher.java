@@ -22,9 +22,6 @@ public class Publisher {
     private Long id;
 
     private String name;
-//
-//    @OneToMany(mappedBy = "publisher")
-//    private Set<Comic> comics = new HashSet<>();
 
     @CreationTimestamp
     private Timestamp createdAt;
@@ -35,10 +32,4 @@ public class Publisher {
     private Timestamp deletedAt;
 
     private boolean isDeleted;
-
-    private Long creatorUserID;
-
-    private Long updaterUserID;
-
-    private Long deleterUserID;
 }

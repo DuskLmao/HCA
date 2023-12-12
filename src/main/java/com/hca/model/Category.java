@@ -32,9 +32,4 @@ public class Category {
 
     private boolean isDeleted;
 
-    private Long creatorUserID;
-
-    private Long updaterUserID;
-
-    private Long deleterUserID;
 }

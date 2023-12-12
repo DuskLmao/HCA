@@ -64,7 +64,6 @@ public class AppVersionServiceImpl implements AppVersionService {
                 apkFile.setFileName(fileName);
                 apkFile.setFileData(fileSize);
                 apkFile.setFilePath(String.valueOf(filePath));
-                apkFile.setCreatorUserID(loggedInUser.getId());
 
                 appVersionRepository.save(apkFile);
             } catch (IOException e) {

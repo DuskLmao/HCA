@@ -1,10 +1,8 @@
 package com.hca.model;
 
-import com.hca.repository.UserRepository;
-import com.hca.security.utils.SecurityConstants;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.beans.factory.annotation.Value;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -32,22 +30,14 @@ public class Chapter {
 
     private Long View;
 
-    private Comic comic;
-
     @CreationTimestamp
     private Timestamp createdAt;
 
-    @CreationTimestamp
-    private Timestamp updateAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
     private Timestamp deletedAt;
 
     private boolean isDeleted;
-
-    private Long creatorUserID;
-
-    private Long updaterUserID;
-
-    private Long deleterUserID;
 }
 

@@ -76,22 +76,14 @@ public class User {
 //	private Set<History> readingHistory = new HashSet<>();
 
 	@CreationTimestamp
-	@JsonIgnore
 	private Timestamp createdAt;
 
 	@UpdateTimestamp
-	@JsonIgnore
 	private Timestamp updatedAt;
 
 	private Timestamp deletedAt;
 
 	private boolean isDeleted;
-
-	private Long creatorUserID;
-
-	private Long updaterUserID;
-
-	private Long deleterUserID;
 
 }
 

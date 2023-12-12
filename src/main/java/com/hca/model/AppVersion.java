@@ -39,14 +39,4 @@ public class AppVersion {
     private Timestamp deletedAt;
 
     private boolean isDeleted;
-
-    @Value("1")
-    private Long creatorUserID;
-
-    @Value("1")
-    private Long updaterUserID;
-
-    private Long deleterUserID;
-
-
 }
