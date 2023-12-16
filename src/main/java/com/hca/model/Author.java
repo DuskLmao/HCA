@@ -28,6 +28,8 @@ public class Author {
 
     private String name;
 
+    private String thumbnail;
+
     @CreationTimestamp
     private Timestamp createdAt;
 
