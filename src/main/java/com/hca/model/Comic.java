@@ -28,6 +28,7 @@ public class Comic {
     private String Description;
     private String Status;
     private String Likes;
+    private String thumbnail;
 
     @CreationTimestamp
     private Timestamp createdAt;
