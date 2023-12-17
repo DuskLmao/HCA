@@ -1,6 +1,7 @@
 package com.hca.controller;
 
 import com.hca.model.Comic;
+import com.hca.model.ComicContent;
 import com.hca.security.dto.LoginRequest;
 import com.hca.security.dto.Response;
 import com.hca.service.truyen.TruyenService;
@@ -30,10 +31,10 @@ public class ComicController {
     }
 
     @GetMapping("/{idtruyen}/{idchapter}")
-    public ResponseEntity<Response<String>> getNoidung(@PathVariable Long idtruyen, @PathVariable Long idchapter) {
+    public ResponseEntity<Response<ComicContent>> getNoidung(@PathVariable Long idtruyen, @PathVariable Long idchapter) {
 
-        String content = truyenService.getNoiDung(idtruyen, idchapter);
-        Response<String> resp = new Response<>();
+        ComicContent content = truyenService.getNoiDung(idtruyen, idchapter);
+        Response<ComicContent> resp = new Response<>();
         resp.setSuccess(true);
         resp.setData(content);
         resp.setMessage("Lấy nội dung truyện thành công!");

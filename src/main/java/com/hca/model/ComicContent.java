@@ -32,7 +32,7 @@ public class ComicContent {
     private Timestamp createdAt;
 
     @CreationTimestamp
-    private Timestamp updateAt;
+    private Timestamp updatedAt;
 
     @CreationTimestamp
     private Timestamp deletedAt;
