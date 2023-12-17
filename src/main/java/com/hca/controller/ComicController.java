@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -40,5 +41,15 @@ public class ComicController {
         resp.setMessage("Lấy nội dung truyện thành công!");
 
         return ResponseEntity.ok(resp);
+    }
+
+    @GetMapping("/all_comic")
+    public ResponseEntity<Response<List<Comic>>> getAllTruyen() {
+        List<Comic> allTruyen = truyenService.getAllTruyen();
+        Response<List<Comic>> resp = new Response<>();
+            resp.setSuccess(true);
+            resp.setData(allTruyen);
+            resp.setMessage("Lấy danh sách truyện thành công!");
+            return ResponseEntity.ok(resp);
     }
 }

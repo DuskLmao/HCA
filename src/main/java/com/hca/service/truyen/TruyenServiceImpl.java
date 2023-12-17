@@ -28,4 +28,7 @@ public class TruyenServiceImpl implements TruyenService {
         List<ComicContent> content = comicContentRepository.getNoiDungTruyen(IdTruyen, IdChapter);
         return content.get(0);
     }
+    public List<Comic> getAllTruyen() {
+        return comicRepository.getAllTruyen();
+    }
 }

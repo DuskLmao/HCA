@@ -17,19 +17,18 @@ import java.util.*;
 @AllArgsConstructor
 @Table(name = "Comics")
 public class Comic {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     public Comic(BigInteger id) {
         this.id = id.longValue();
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
-    private String name;
-    private String description;
-    private String status;
-    private String likes;
+    public String name;
+    private String Description;
+    private String Status;
+    private String Likes;
+    private String thumbnail;
 
     @CreationTimestamp
     private Timestamp createdAt;
