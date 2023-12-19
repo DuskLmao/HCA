@@ -25,17 +25,20 @@ public class Comic {
         this.id = id.longValue();
     }
     public String name;
-    private String Description;
-    private String Status;
-    private String Likes;
+    private String description;
+    private String status;
+    private String likes;
     private String thumbnail;
 
     @CreationTimestamp
+    @JoinColumn(name = "created_at")
     private Timestamp createdAt;
 
     @UpdateTimestamp
+    @JoinColumn(name = "updated_at")
     private Timestamp updatedAt;
 
+    @JoinColumn(name = "deleted_at")
     private Timestamp deletedAt;
 
     private boolean isDeleted;

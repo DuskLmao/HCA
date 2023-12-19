@@ -31,4 +31,9 @@ public class TruyenServiceImpl implements TruyenService {
     public List<Comic> getAllTruyen() {
         return comicRepository.getAllTruyen();
     }
+
+    public List<Comic> searchComicsByKeyword(String keyword) {
+        List<Comic> content = comicRepository.searchComicsByKeyword(keyword);
+        return content;
+    }
 }

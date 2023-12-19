@@ -2,15 +2,12 @@ package com.hca.controller;
 
 import com.hca.model.Comic;
 import com.hca.model.ComicContent;
-import com.hca.security.dto.LoginRequest;
 import com.hca.security.dto.Response;
 import com.hca.service.truyen.TruyenService;
-import com.hca.service.truyen.TruyenServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin
@@ -51,5 +48,10 @@ public class ComicController {
             resp.setData(allTruyen);
             resp.setMessage("Lấy danh sách truyện thành công!");
             return ResponseEntity.ok(resp);
+    }
+
+    @GetMapping("/search")
+    public List<Comic> getTruyenByKeyword(@RequestParam  String keyword) {
+        return truyenService.searchComicsByKeyword(keyword);
     }
 }

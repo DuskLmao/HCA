@@ -9,4 +9,5 @@ public interface TruyenService {
     Comic getTruyen(Long IdTruyen);
     ComicContent getNoiDung(Long IdTruyen, Long IdChapter);
     List<Comic> getAllTruyen();
+    List<Comic> searchComicsByKeyword(String keyword);
 }
