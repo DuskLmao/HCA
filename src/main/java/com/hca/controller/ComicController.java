@@ -51,7 +51,12 @@ public class ComicController {
     }
 
     @GetMapping("/search")
-    public List<Comic> getTruyenByKeyword(@RequestParam  String keyword) {
-        return truyenService.searchComicsByKeyword(keyword);
+    public ResponseEntity<Response<List<Comic>>> getTruyenByKeyword(@RequestParam  String keyword) {
+        List<Comic> comic = truyenService.searchComicsByKeyword(keyword);
+        Response<List<Comic>> resp = new Response<>();
+        resp.setSuccess(true);
+        resp.setData(comic);
+        resp.setMessage("Tìm kiếm truyện thành công!");
+        return ResponseEntity.ok(resp);
     }
 }
